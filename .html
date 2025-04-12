@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Breach - Hacking Simulation</title>
+    <style>
+        body {
+            background: black;
+            color: green;
+            font-family: monospace;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+        }
+        .terminal {
+            border: 1px solid green;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            height: 70%;
+            overflow: auto;
+            background: black;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        .cursor {
+            display: inline;
+            background: green;
+            width: 10px;
+            height: 20px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { background: green; }
+            50% { background: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal" id="terminal">
+            <div>Initializing system...</div>
+            <div>Scanning for vulnerabilities...</div>
+            <div>Accessing network...</div>
+            <div>Loading encryption algorithms...</div>
+            <div>Bypassing security protocols...</div>
+            <div>Establishing connection...</div>
+            <div>Authorization successful.</div>
+            <div>Injecting payload...</div>
+            <div>Data extraction in progress...</div>
+            <div>-----------------------------------</div>
+            <div><span class="cursor"></span>></div>
+        </div>
+    </div>
+    <script>
+        const terminal = document.getElementById('terminal');
+        const messages = [
+            'Initializing system...',
+            'Scanning for vulnerabilities...',
+            'Accessing network...',
+            'Loading encryption algorithms...',
+            'Bypassing security protocols...',
+            'Establishing connection...',
+            'Authorization successful.',
+            'Injecting payload...',
+            'Data extraction in progress...',
+            '-----------------------------------'
+        ];
+
+        let i = 0;
+        function typeMessage() {
+            if (i < messages.length) {
+                terminal.innerHTML += `<div>${messages[i]}</div>`;
+                i++;
+                setTimeout(typeMessage, 1500);
+            } else {
+                document.querySelector('.cursor').style.display = 'none';
+            }
+        }
+        
+        typeMessage();
+    </script>
+</body>
+</html>

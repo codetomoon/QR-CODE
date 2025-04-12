@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition and Subtraction Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            width: 150px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Calculator</h1>
+        <input type="number" id="n1" placeholder="Enter first no.">
+        <input type="number" id="n2" placeholder="Enter second no.">
+        <button onclick="calculate('multiply')">multiply</button>
+        <button onclick="calculate('divide')">divide</button>
+        <button onclick="calculate('add')">add</button>
+        <button onclick="calculate('subtract')">subtract</button>
+       
+        <div class="result" id="result">Result will appear here</div>
+    </div>
+
+    <script>
+        function calculate(operation) {
+            // Get the input values
+            const n1 = parseFloat(document.getElementById('n1').value);
+            const n2 = parseFloat(document.getElementById('n2').value);
+            let result;
+
+            // Perform the operation
+            if (operation === 'multiply') {
+                result = n1 * n2;
+            } else if (operation === 'divide') {
+                result = n1 / n2;
+            } else if (operation === 'add') {
+                result = n1 + n2;
+            } else if (operation === 'subtract') {
+                result = n1 - n2;
+           }
+
+            // Display the result
+            document.getElementById('result').textContent = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
